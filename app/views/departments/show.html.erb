@@ -2,9 +2,56 @@
 
 <%= render @department %>
 
+<h2>Students</h2>
+
+<% if @department.students.any? %>
+  <ul>
+    <% @department.students.each do |student| %>
+      <li>
+        <%= student.name %> -
+        Year <%= student.year_level %> -
+        <%= student.program %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No students assigned to this department.</p>
+<% end %>
+
 <div>
   <%= link_to "Edit this department", edit_department_path(@department) %> |
   <%= link_to "Back to departments", departments_path %>
 
   <%= button_to "Destroy this department", @department, method: :delete %>
 </div>
+
+<h2>Teachers</h2>
+
+<% if @department.teachers.any? %>
+  <ul>
+    <% @department.teachers.each do |teacher| %>
+      <li>
+        <%= teacher.name %> -
+        <%= teacher.email %> -
+        <%= teacher.specialization %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No teachers assigned to this department.</p>
+<% end %>
+
+<h2>Laboratories</h2>
+
+<% if @department.laboratories.any? %>
+  <ul>
+    <% @department.laboratories.each do |laboratory| %>
+      <li>
+        <%= laboratory.name %> -
+        <%= laboratory.location %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No laboratories assigned to this department.</p>
+<% end %>
