@@ -8,3 +8,11 @@
 
   <%= button_to "Destroy this teacher", @teacher, method: :delete %>
 </div>
+
+<h2>Subjects</h2>
+
+  <ul>
+    <% @teacher.subjects.each do |subject| %>
+      <li><%= subject.name %></li>
+    <% end %>
+  </ul>
