@@ -24,4 +24,25 @@
   <div>
     <%= form.submit %>
   </div>
+
+  <div>
+    <%= form.label :subject_id, "Subject" %>
+    <%= form.collection_select :subject_id, Subject.all, :id, :name,
+        { prompt: "Select a Subject" } %>
+  </div>
+  <div>
+    <%= form.label :student_id, "Student" %>
+    <%= form.collection_select :student_id, Student.all, :id, :name,
+        { prompt: "Select a Student" } %>
+  </div>
+
+  <div>
+    <%= form.label :section_id, "Section" %>
+    <%= form.collection_select :section_id, Section.all, :id, :name,
+        { prompt: "Select a Section" } %>
+  </div>
+    <div>
+    <%= form.label :room, "Room" %>
+    <%= form.text_field :room %>
+  </div>
 <% end %>

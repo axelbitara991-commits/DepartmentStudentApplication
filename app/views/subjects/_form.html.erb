@@ -17,8 +17,9 @@
   </div>
 
   <div>
-    <%= form.label :teacher_id %>
-    <%= form.collection_select :teacher_id, Teacher.all, :id, :name, prompt: "Select a Teacher" %>
+    <%= form.label :teacher_id, "Teacher" %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :name,
+        { prompt: "Select a Teacher" } %>
   </div>
 
   <div>
