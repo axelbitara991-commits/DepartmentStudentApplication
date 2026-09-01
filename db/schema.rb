@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_27_064628) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_01_071817) do
   create_table "classlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.bigint "section_id", null: false
@@ -39,8 +39,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_27_064628) do
   create_table "sections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name"
+    t.string "room"
+    t.bigint "subject_id", null: false
     t.string "timeslot"
     t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_sections_on_subject_id"
   end
 
   create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
