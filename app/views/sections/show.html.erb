@@ -8,3 +8,17 @@
 
   <%= button_to "Destroy this section", @section, method: :delete %>
 </div>
+
+<h2>Students</h2>
+
+<% if @section.students.any? %>
+  <ul>
+    <% @section.students.each do |student| %>
+      <li>
+        <%= student.name %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No students enrolled in this section.</p>
+<% end %>
