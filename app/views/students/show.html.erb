@@ -2,6 +2,34 @@
 
 <%= render @student %>
 
+<h2>List of Subjects:</h2>
+
+<% if @student.sections.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Section</th>
+        <th>Room</th>
+        <th>Timeslot</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @student.sections.each do |section| %>
+        <tr>
+          <td><%= section.subject&.name || "No subject assigned" %></td>
+          <td><%= section.name %></td>
+          <td><%= section.room %></td>
+          <td><%= section.timeslot %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No subjects enrolled.</p>
+<% end %>
+
 <div>
   <%= link_to "Edit this student", edit_student_path(@student) %> |
   <%= link_to "Back to students", students_path %>
